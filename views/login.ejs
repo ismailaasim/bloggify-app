@@ -1,0 +1,48 @@
+  <%- include('partials/header') %>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #ffffff;
+            border: 1px solid #e3e6ea;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    <div class="form-container">
+        <h2 class="text-center mb-4">Login</h2>
+        <% if (locals.errors && errors.generalErr) { %>
+            <div class="alert alert-danger" role="alert">
+              </div>
+        <% } %>
+        
+        <form action="/user/login" method="POST">   
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email"   placeholder="Enter your email" value="<%= typeof email !== 'undefined' ? email : '' %>">
+                <% if (locals.errors && errors.emailErr) { %>
+                    <div class="error-message text-danger"><%= errors.emailErr %></div>
+                <% } %>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password"  placeholder="Enter your password">
+                <% if (locals.errors && errors.passwordErr) { %>
+                    <div class="error-message text-danger"><%= errors.passwordErr %></div>
+                <% } %>
+                
+            </div>
+            <div class="d-grid">    
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <p class="text-center mt-3">
+                Don't have an account? <a href="/signup">Sign up</a>
+            </p>
+        </form>
+    </div>
+

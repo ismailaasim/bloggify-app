@@ -1,0 +1,44 @@
+
+<%- include('partials/header')%>
+<%- include('partials/navbar')%>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .form-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 30px;
+        background: #ffffff;
+        border: 1px solid #e3e6ea;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="form-container ">
+    <h2 class="text-center mb-4">Add Blog</h2>
+    <form action="/blog" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <input type="file" class="form-control" id="coverImage" name="coverImage">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" required placeholder="Enter your name">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Body</label>
+            <textarea class="form-control" id="body" name="body" required placeholder="Enter your body"></textarea>
+            <!-- <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email"> -->
+        </div>
+        
+        
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        
+    </form>
+</div>
+    
+<%- include('partials/script')%>
